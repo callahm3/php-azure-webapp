@@ -77,7 +77,7 @@ RUN set -eux; \
 
 # Copy configuration files
 COPY docker-entrypoint.sh /dockerfiles/docker-entrypoint.sh
-COPY config/sshd_config /etc/sshd_config
+COPY config/sshd_config /etc/ssh/sshd_config
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
 COPY config/php.ini /etc/php7/conf.d/custom.ini
