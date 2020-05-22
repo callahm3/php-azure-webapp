@@ -26,6 +26,9 @@ RUN set -eux; \
 	php-mbstring \
 	php-xml; \
 	yum install -y \
+	zip \
+	unzip \
+	php-zip \
 	nginx \
 	wget \
 	openssh-server \
@@ -79,8 +82,8 @@ RUN set -eux; \
 COPY docker-entrypoint.sh /dockerfiles/docker-entrypoint.sh
 COPY config/sshd_config /etc/ssh/sshd_config
 COPY config/nginx.conf /etc/nginx/nginx.conf
-COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
-COPY config/php.ini /etc/php7/conf.d/custom.ini
+COPY config/fpm-pool.conf /etc/php-fpm.d/www.conf
+COPY config/php.ini /etc/php.d/custom.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config/userlist.txt /etc/pgbouncer/userlist.txt
 COPY config/custom_pgbouncer.ini /etc/pgbouncer/custom_pgbouncer.ini
